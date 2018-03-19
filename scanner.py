@@ -94,58 +94,5 @@ text = input('give some input>')
 
 
 
-# scan text until no more input
-while text:	# that is, while len(text)>0
-	
-	# get next token and position after last char recognized
-	token,position = scan(text,td,ad)
-	
-	if token=='ERROR_TOKEN':
-		print('ERROR_TOKEN: unrecognized input at pos',position+1,'of',text)
-		break
-	
-	print(token,text[:position])
-	
-	# remaining text for next scan
 
-	text = text[position: ]
-
-# Αντικαταστήστε με το δικό σας λεξικό μεταβάσεων...
-td = { 'q0':{ 't':'q1','l':'q2' },
-       'q1':{ 'e':'q3' },
-       'q2':{ 'o':'q8' },
-       'q3':{ 's':'q4','r':'q6' },
-       'q4':{ 't':'q5' },
-       'q6':{ 'm':'q7' },
-       'q8':{ 'n':'q9' },
-       'q9':{ 'g':'q10'}
-     } 
-
-# the dictionary of accepting states and their
-# corresponding token
-
-# Αντικαταστήστε με το δικό σας λεξικό καταστάσεων αποδοχής...
-ad = { 'q5':'TEST_TOKEN',
-       'q7':'TERM_TOKEN',
-       'q10':'LONG_TOKEN'
-     }
-
-
-# get a string from input
-text = input('give some input>')
-
-# scan text until no more input
-while text:	# that is, while len(text)>0
-	
-	# get next token and position after last char recognized
-	token,position = scan(text,td,ad)
-	
-	if token=='ERROR_TOKEN':
-		print('unrecognized input at pos',position+1,'of',text)
-		break
-	
-	print("token:",token,"string:",text[:position])
-	
-	# remaining text for next scan
-	text = text[position:]
 	
